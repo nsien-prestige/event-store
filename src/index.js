@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { recoverMap } from './services/eventStore.services.js';
-import * as eventsRoute from './routes/eventStore.routes.js'
+import eventsRoute from './routes/eventStore.routes.js'
 
 dotenv.config();
 
