@@ -1,0 +1,108 @@
+<svg width="680" height="780" viewBox="0 0 680 780" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff;font-family:sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- ── SECTION 1: WRITE PATH ── -->
+  <text font-size="15" font-weight="500" x="340" y="30" text-anchor="middle" fill="#2C2C2A">Write path — POST /events</text>
+
+  <rect x="40" y="50" width="110" height="44" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="95" y="70" text-anchor="middle" fill="#2C2C2A">Client</text>
+  <text font-size="11" x="95" y="86" text-anchor="middle" fill="#5F5E5A">POST /events</text>
+
+  <rect x="190" y="50" width="150" height="44" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="265" y="70" text-anchor="middle" fill="#085041">Express route</text>
+  <text font-size="11" x="265" y="86" text-anchor="middle" fill="#0F6E56">stamps id + createdAt</text>
+
+  <rect x="385" y="50" width="130" height="44" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="450" y="70" text-anchor="middle" fill="#085041">EventStore</text>
+  <text font-size="11" x="450" y="86" text-anchor="middle" fill="#0F6E56">.append(event)</text>
+
+  <rect x="558" y="50" width="100" height="44" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="608" y="78" text-anchor="middle" fill="#412402">events.log</text>
+
+  <line x1="150" y1="72" x2="188" y2="72" stroke="#444441" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="340" y1="72" x2="383" y2="72" stroke="#444441" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="515" y1="72" x2="556" y2="72" stroke="#854F0B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text font-size="10" x="535" y="65" text-anchor="middle" fill="#854F0B">fs.writeSync</text>
+
+  <rect x="385" y="130" width="130" height="44" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="450" y="148" text-anchor="middle" fill="#26215C">In-memory index</text>
+  <text font-size="11" x="450" y="164" text-anchor="middle" fill="#534AB7">Map&lt;id, offset&gt;</text>
+
+  <line x1="450" y1="94" x2="450" y2="128" stroke="#534AB7" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text font-size="10" x="488" y="115" text-anchor="start" fill="#534AB7">index.set(id, offset)</text>
+
+  <rect x="190" y="130" width="140" height="44" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="260" y="148" text-anchor="middle" fill="#2C2C2A">Client receives</text>
+  <text font-size="11" x="260" y="164" text-anchor="middle" fill="#5F5E5A">201 + event</text>
+
+  <path d="M340 72 L360 72 L360 152 L332 152" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <line x1="40" y1="210" x2="640" y2="210" stroke="#D3D1C7" stroke-width="0.5" stroke-dasharray="4,3"/>
+
+  <!-- ── SECTION 2: READ PATH ── -->
+  <text font-size="15" font-weight="500" x="340" y="235" text-anchor="middle" fill="#2C2C2A">Read path — GET /events/:id</text>
+
+  <rect x="40" y="255" width="110" height="44" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="95" y="273" text-anchor="middle" fill="#2C2C2A">Client</text>
+  <text font-size="11" x="95" y="289" text-anchor="middle" fill="#5F5E5A">GET /events/:id</text>
+
+  <rect x="190" y="255" width="150" height="44" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="265" y="273" text-anchor="middle" fill="#042C53">Express route</text>
+  <text font-size="11" x="265" y="289" text-anchor="middle" fill="#185FA5">extracts :id param</text>
+
+  <rect x="385" y="255" width="130" height="44" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="450" y="273" text-anchor="middle" fill="#042C53">EventStore</text>
+  <text font-size="11" x="450" y="289" text-anchor="middle" fill="#185FA5">.findById(id)</text>
+
+  <rect x="558" y="255" width="100" height="44" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="608" y="270" text-anchor="middle" fill="#26215C">In-memory</text>
+  <text font-size="11" x="608" y="286" text-anchor="middle" fill="#534AB7">index</text>
+
+  <line x1="150" y1="277" x2="188" y2="277" stroke="#444441" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="340" y1="277" x2="383" y2="277" stroke="#444441" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="515" y1="270" x2="556" y2="270" stroke="#534AB7" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text font-size="10" x="535" y="263" text-anchor="middle" fill="#534AB7">index.get(id)</text>
+  <line x1="556" y1="284" x2="515" y2="284" stroke="#534AB7" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="385" y="335" width="130" height="44" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="450" y="353" text-anchor="middle" fill="#412402">events.log</text>
+  <text font-size="11" x="450" y="369" text-anchor="middle" fill="#854F0B">seek to offset</text>
+
+  <line x1="450" y1="299" x2="450" y2="333" stroke="#854F0B" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text font-size="10" x="488" y="320" text-anchor="start" fill="#854F0B">fs.readSync</text>
+
+  <path d="M385 355 L360 355 L360 277 L332 277" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <line x1="40" y1="415" x2="640" y2="415" stroke="#D3D1C7" stroke-width="0.5" stroke-dasharray="4,3"/>
+
+  <!-- ── SECTION 3: RECOVERY ── -->
+  <text font-size="15" font-weight="500" x="340" y="440" text-anchor="middle" fill="#2C2C2A">Startup — crash recovery</text>
+
+  <rect x="40" y="460" width="120" height="44" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="100" y="482" text-anchor="middle" fill="#2C2C2A">Server starts</text>
+
+  <rect x="200" y="460" width="150" height="44" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="275" y="474" text-anchor="middle" fill="#085041">EventStore.open()</text>
+  <text font-size="11" x="275" y="492" text-anchor="middle" fill="#0F6E56">recoverMap()</text>
+
+  <rect x="395" y="460" width="110" height="44" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="450" y="482" text-anchor="middle" fill="#412402">events.log</text>
+
+  <rect x="550" y="460" width="110" height="44" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="605" y="474" text-anchor="middle" fill="#26215C">In-memory</text>
+  <text font-size="11" x="605" y="492" text-anchor="middle" fill="#534AB7">index rebuilt</text>
+
+  <line x1="160" y1="482" x2="198" y2="482" stroke="#444441" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="350" y1="482" x2="393" y2="482" stroke="#444441" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="505" y1="482" x2="548" y2="482" stroke="#534AB7" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="200" y="545" width="280" height="44" rx="6" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+  <text font-size="13" font-weight="500" x="340" y="563" text-anchor="middle" fill="#173404">Recovered N events</text>
+  <text font-size="11" x="340" y="579" text-anchor="middle" fill="#3B6D11">server ready</text>
+
+  <line x1="275" y1="504" x2="275" y2="543" stroke="#3B6D11" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>
