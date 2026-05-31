@@ -6,6 +6,9 @@ const eventsFilePath = path.join(process.cwd(), 'events.log');
 const index = new Map();
 
 export const saveEvent = (event) => {
+    if (!event || Object.keys(event).length === 0) {
+        return null;
+    }
     event.id = uuidv4();
     event.createdAt = new Date().toISOString();
 
